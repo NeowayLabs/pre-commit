@@ -90,7 +90,7 @@ func runCli(cmd *cobra.Command, args []string) {
 
 	var commitType string
 	prompt := &survey.Select{
-		Message: "Select the programming language:",
+		Message: "Select the commit type:",
 		Options: options,
 	}
 	survey.AskOne(prompt, &commitType)
