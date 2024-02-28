@@ -1,8 +1,8 @@
 installdir=/usr/local/bin
 
 build:
-	go build pre_commit.go
+	go build main.go
 
 install: build
-	sudo cp pre_commit $(installdir)/commit
+	sudo cp main $(installdir)/commit
 
