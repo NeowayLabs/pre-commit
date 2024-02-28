@@ -67,7 +67,7 @@ func printRed(text string) {
 }
 
 func printGreen(text string) {
-	fmt.Println(colorRed + text + colorReset)
+	fmt.Println(colorGreen + text + colorReset)
 }
 
 func getCommitType(selectedValue string) string {
