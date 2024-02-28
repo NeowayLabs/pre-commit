@@ -1,7 +1,7 @@
 # pre-commit
 
 The `pre-commit` will validate your commit messages before the commit being accepted.
-That will prevent you from having to rebase your commit history to adapt your commit messages to (semantic-release)[https://github.com/NeowayLabs/semantic-release] standards.
+That will prevent you from having to rebase your commit history to adapt your commit messages to [semantic-release](https://github.com/NeowayLabs/semantic-release) standards.
 
 # Requirements
 - [Golang installation](https://go.dev/doc/install)
