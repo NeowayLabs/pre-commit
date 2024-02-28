@@ -70,6 +70,10 @@ func printRed(text string) {
 	fmt.Println(colorRed + text + colorReset)
 }
 
+func printGreen(text string) {
+	fmt.Println(colorRed + text + colorReset)
+}
+
 func getCommitType() (string, error) {
 	printGreenYellow("[COMMIT TYPE]", ` Which one is your commit type? *insert the option number*
 
@@ -141,8 +145,6 @@ func commit(message string) {
 	printGreenYellow("[Running] ", fmt.Sprintf("%s from %s", command, location))
 
 	out, errRun := exec.Command("bash", "-c", command).Output()
-	output := string(out[:])
-	printRed(output)
 
 	if errRun != nil {
 		printRed(fmt.Sprintf("Oops! Error to commit: %s", errRun.Error()))
@@ -151,4 +153,7 @@ func commit(message string) {
 		}
 		log.Fatal(errRun)
 	}
+
+	output := string(out[:])
+	printGreen(output)
 }
