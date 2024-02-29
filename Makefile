@@ -1,8 +1,8 @@
 installdir=/usr/local/bin
 
 build:
-	go build main.go
+	go build git-dpcommit.go
 
 install: build
-	sudo cp main $(installdir)/commit
+	sudo cp git-dpcommit $(installdir)/git-dpcommit
 

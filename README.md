@@ -16,8 +16,8 @@ make install
 
 # How to use it?
 
-After adding new changes with the `git add` command, you can run `commit .` on any git project root path and follow CLI steps.
+After adding new changes with the `git add` command, you can run `git dpcommit .` on any git project root path and follow CLI steps.
 
 ```
-commit .
+git dpcommit .
 ```

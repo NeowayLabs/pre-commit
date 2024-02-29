@@ -98,23 +98,18 @@ func runCli(cmd *cobra.Command, args []string) {
 	commitMessage := stringPrompt("What is the commit message?")
 
 	commitType = getCommitType(commitType)
-	fullMessage := fmt.Sprintf("type: [%s], message: %s", commitType, commitMessage)
+
+	commitScope := stringPrompt("[Optional - ENTER to ignore] What is the commit scope?")
+
+	fullMessage := fmt.Sprintf("%s: %s", commitType, commitMessage)
+	if commitScope != "" {
+		fullMessage = fmt.Sprintf("%s(%s): %s", commitType, commitScope, commitMessage)
+	}
+
 	fmt.Printf("Your commit message is: %s.\n", fullMessage)
 
-	yesNoOptions := []string{"yes", "no"}
-	var commitNow string
-	prompt = &survey.Select{
-		Message: "Do you want to commit now?",
-		Options: yesNoOptions,
-	}
-	survey.AskOne(prompt, &commitNow)
-
-	if commitNow == "yes" {
-		commit(fullMessage)
-		printGreen("Done!")
-	} else {
-		printGreen("Bye!")
-	}
+	commit(fullMessage)
+	printGreen("Done!")
 }
 
 func stringPrompt(label string) string {
