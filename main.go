@@ -75,7 +75,7 @@ func getCommitType(selectedValue string) string {
 }
 
 func runCli(cmd *cobra.Command, args []string) {
-	options := []string{
+	commitTypeOptions := []string{
 		fixType,
 		featType,
 		docsType,
@@ -91,7 +91,7 @@ func runCli(cmd *cobra.Command, args []string) {
 	var commitType string
 	prompt := &survey.Select{
 		Message: "Select the commit type:",
-		Options: options,
+		Options: commitTypeOptions,
 	}
 	survey.AskOne(prompt, &commitType)
 
@@ -111,8 +111,9 @@ func runCli(cmd *cobra.Command, args []string) {
 
 	if commitNow == "yes" {
 		commit(fullMessage)
+		printGreen("Done!")
 	} else {
-		fmt.Println("Bye!")
+		printGreen("Bye!")
 	}
 }
 
